@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: greenblock-backend
+  datasource:
+    url: ${GREENBLOCK_DB_URL:jdbc:mysql://localhost:3306/greenblock?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8&allowPublicKeyRetrieval=true}
+    username: ${GREENBLOCK_DB_USERNAME:root}
+    password: ${GREENBLOCK_DB_PASSWORD:}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: ${GREENBLOCK_DDL_AUTO:none}
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+    open-in-view: false
+  sql:
+    init:
+      mode: never
+
+server:
+  port: 8080
+
+greenblock:
+  llm:
+    provider: ${GREENBLOCK_LLM_PROVIDER:fallback}
+    openai:
+      base-url: ${OPENAI_BASE_URL:https://api.openai.com/v1}
+      api-key: ${OPENAI_API_KEY:}
+      model: ${OPENAI_MODEL:gpt-5.4-mini}
+    ollama:
+      base-url: ${OLLAMA_BASE_URL:http://localhost:11434}
+      model: ${OLLAMA_MODEL:llama3.2:3b}
