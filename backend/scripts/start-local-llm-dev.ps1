@@ -17,6 +17,8 @@ $env:GREENBLOCK_LLM_PROVIDER = "ollama"
 $env:OLLAMA_MODEL = $Model
 $env:OLLAMA_BASE_URL = $BaseUrl
 
+. "$PSScriptRoot\load-backend-dev-env.ps1"
+
 $ollama = Get-Command ollama -ErrorAction SilentlyContinue
 $ollamaExe = if ($ollama) { $ollama.Source } else { "$env:LOCALAPPDATA\Programs\Ollama\ollama.exe" }
 
