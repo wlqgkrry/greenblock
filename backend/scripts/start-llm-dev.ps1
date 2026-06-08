@@ -16,6 +16,8 @@ if (-not $ApiKey) {
 $env:OPENAI_MODEL = $Model
 $env:GREENBLOCK_LLM_PROVIDER = "openai"
 
+. "$PSScriptRoot\load-backend-dev-env.ps1"
+
 if ($ApiKey) {
     $env:OPENAI_API_KEY = $ApiKey
     Write-Host "Starting backend with OpenAI API. model=$Model"
