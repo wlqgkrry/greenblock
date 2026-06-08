@@ -16,7 +16,10 @@ spring:
     open-in-view: false
   sql:
     init:
-      mode: never
+      mode: always
+  mvc:
+    async:
+      request-timeout: 600000
 
 server:
   port: 8080
